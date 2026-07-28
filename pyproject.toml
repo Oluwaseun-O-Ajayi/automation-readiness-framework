@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "automation-readiness-framework"
+version = "0.1.0"
+description = "Framework for evaluating laboratory workflow automation readiness"
+readme = "README.md"
+requires-python = ">=3.8"
+
+authors = [
+  {name = "Oluwaseun O. Ajayi"}
+]
+
+license = {text = "MIT"}
