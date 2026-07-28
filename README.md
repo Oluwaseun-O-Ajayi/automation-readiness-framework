@@ -162,7 +162,27 @@ automation-readiness-framework/
 ```
 
 ---
+## Example Assessment
 
+```bash
+python examples/example_assessment.py
+```
+
+Expected output:
+
+```
+Workflow: Cell Culture Screening Workflow
+
+Data Readiness            8.5
+Traceability              9.0
+Integration               7.0
+Human Dependency          5.0
+Exception Handling        4.5
+Workflow Stability        8.0
+
+Overall Readiness Score: 7.0
+Classification: Advanced
+```
 ## Intended Use
 
 This framework is intended for:
@@ -177,6 +197,6 @@ This framework is intended for:
 
 ## Limitations
 
-This framework is a conceptual and computational assessment approach.
+This framework is a conceptual and computational assessment approach
 
-It does not directly control automation systems, robots, instruments, LIMS, MES platforms, or manufacturing environments.
+It does not directly control automation systems, robots, instruments, LIMS, MES platforms, or manufacturing environments
