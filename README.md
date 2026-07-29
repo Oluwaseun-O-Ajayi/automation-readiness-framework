@@ -2,6 +2,13 @@
 
 **A structured framework for evaluating traceability, integration, workflow maturity, and automation readiness in laboratory processes.**
 
+## DOI and Archival Record
+
+This software is archived on Zenodo for long-term preservation, reproducibility, and scholarly citation.
+
+**Version:** 1.0.1
+
+**DOI:** https://doi.org/10.5281/zenodo.21689250
 ---
 
 ## Overview
@@ -192,7 +199,27 @@ This framework is intended for:
 - digital transformation initiatives
 - educational purposes
 - research studies in automation methodology
+---
 
+## Citation
+
+If you use this framework in research, teaching, workflow analysis, or automation planning, please cite:
+
+```text
+Ajayi, O. O. (2026).
+Automation Readiness Assessment Framework (Version 1.0.1) [Computer software].
+Zenodo.
+DOI: 10.5281/zenodo.21689250
+@software{automation_readiness_framework_2026,
+  author = {Ajayi, Oluwaseun O.},
+  title = {Automation Readiness Assessment Framework},
+  year = {2026},
+  version = {1.0.1},
+  publisher = {Zenodo},
+  doi = {10.5281/zenodo.21689250},
+  url = {https://doi.org/10.5281/zenodo.21689250}
+}
+```
 ---
 
 ## Limitations
