@@ -1,5 +1,5 @@
 ---
-title: "Automation Readiness Assessment Framework: Evaluating Traceability, Integration, and Workflow Maturity in Laboratory Processes"
+title: "Automation Readiness Assessment Framework: An Open-Source Methodology for Evaluating Laboratory Workflow Automation Readiness"
 tags:
   - laboratory automation
   - workflow assessment
@@ -40,7 +40,9 @@ Domain scores are combined into an overall readiness score that provides a high-
 
 # Scientific Contribution
 
-The contribution of this framework is the introduction of a structured, transparent, and configurable methodology for assessing workflow readiness prior to automation. Rather than focusing on automation technologies themselves, the framework focuses on evaluating whether existing workflows possess the characteristics required for successful automation initiatives.
+The Automation Readiness Assessment Framework introduces a structured and reproducible methodology for evaluating workflow suitability before automation implementation. Unlike approaches that focus primarily on automation technologies, this framework evaluates the maturity of underlying workflows across data readiness, traceability, integration capability, workflow stability, exception management, and human dependency dimensions.
+
+The framework provides a repeatable assessment process that can support automation planning, digital transformation initiatives, workflow modernization programs, and laboratory operations research. By emphasizing workflow readiness rather than automation deployment itself, the framework helps identify technical and organizational barriers that may limit automation success.
 
 # Example Application
 
@@ -52,6 +54,25 @@ The framework is intended as a decision-support methodology and does not replace
 
 # Availability
 
-The framework is released as open-source software with associated examples, documentation, and manuscript files.
+The Automation Readiness Assessment Framework is available as open-source software through GitHub and archived through Zenodo for long-term preservation and scholarly citation.
+
+Repository:
+https://github.com/Oluwaseun-O-Ajayi/automation-readiness-framework
+
+Archived Version:
+v1.0.1
+
+DOI:
+10.5281/zenodo.21689250
 
 # References
+
+# Software Citation
+
+If you use this framework, please cite:
+
+Ajayi, O. O. (2026).
+Automation Readiness Assessment Framework (Version 1.0.1).
+Zenodo.
+
+DOI: 10.5281/zenodo.21689250
