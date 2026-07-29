@@ -169,6 +169,7 @@ automation-readiness-framework/
 ```
 
 ---
+
 ## Example Assessment
 
 ```bash
@@ -199,17 +200,27 @@ This framework is intended for:
 - digital transformation initiatives
 - educational purposes
 - research studies in automation methodology
+
 ---
 
 ## Citation
 
-If you use this framework in research, teaching, workflow analysis, or automation planning, please cite:
+If you use this framework in research, teaching, workflow analysis, automation planning, or digital transformation studies, please cite:
 
 ```text
 Ajayi, O. O. (2026).
-Automation Readiness Assessment Framework (Version 1.0.1) [Computer software].
+
+Automation Readiness Assessment Framework
+(Version 1.0.1) [Computer software].
+
 Zenodo.
+
 DOI: 10.5281/zenodo.21689250
+```
+
+### BibTeX
+
+```bibtex
 @software{automation_readiness_framework_2026,
   author = {Ajayi, Oluwaseun O.},
   title = {Automation Readiness Assessment Framework},
@@ -220,10 +231,13 @@ DOI: 10.5281/zenodo.21689250
   url = {https://doi.org/10.5281/zenodo.21689250}
 }
 ```
+
 ---
 
 ## Limitations
 
-This framework is a conceptual and computational assessment approach
+This framework is a conceptual and computational assessment approach.
 
-It does not directly control automation systems, robots, instruments, LIMS, MES platforms, or manufacturing environments
+It does not directly control automation systems, robots, instruments, LIMS, MES platforms, or manufacturing environments.
+---
+
