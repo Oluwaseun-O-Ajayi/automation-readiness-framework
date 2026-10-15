@@ -120,6 +120,10 @@ Categories:
 9–10  Automation Ready
 ```
 
+**Scoring convention.** Every domain is scored so that a higher value means more ready. For Human Dependency, 10 therefore means that the workflow depends least on manual steps. The overall score is the unweighted mean of the six domain scores, and a value on a boundary falls in the higher category (for example, 7.0 is Advanced).
+
+**Status of the method.** The six domains, the 0 to 10 scale and the category thresholds were defined by the author from common automation-planning considerations. They have not been validated against the outcomes of real automation projects, and the scores are entered by the assessor rather than measured. Use the result to structure discussion and to find gaps, not to predict whether an automation project will succeed.
+
 ---
 
 ## Example Output
