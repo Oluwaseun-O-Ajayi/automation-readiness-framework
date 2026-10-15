@@ -15,6 +15,13 @@ class Workflow:
     ):
         self.name = name
 
+        for label, value in (("data_readiness", data_readiness), ("traceability", traceability),
+                             ("integration", integration), ("human_dependency", human_dependency),
+                             ("exception_handling", exception_handling),
+                             ("workflow_stability", workflow_stability)):
+            if not isinstance(value, (int, float)) or not 0 <= value <= 10:
+                raise ValueError(f"{label} must be a number from 0 to 10 (higher means more ready)")
+
         self.data_readiness = data_readiness
         self.traceability = traceability
         self.integration = integration
