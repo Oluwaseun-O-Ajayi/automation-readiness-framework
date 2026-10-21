@@ -65,6 +65,10 @@ v1.0.1
 DOI:
 10.5281/zenodo.21689250
 
+# AI usage disclosure
+
+The author designed and wrote the original version of this software in July 2026, and wrote this paper. In October 2026, Claude Opus 5.5 (Anthropic) was used for code review and minor code and documentation edits. The author directed and verified all changes and takes full responsibility for the work.
+
 # References
 
 # Software Citation
