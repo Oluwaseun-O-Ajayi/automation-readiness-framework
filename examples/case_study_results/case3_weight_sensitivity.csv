@@ -1,0 +1,6 @@
+workflow,rank_equal_weights,share_ranked_first,median_rank,score_min,score_max
+HPLC purity testing,1,1.0,1.0,7.02,8.52
+Plate-based ELISA,2,0.0,2.0,5.8,7.42
+Buffer preparation,3,0.0,3.0,4.23,6.45
+Cell culture passaging,4,0.0,4.0,3.9,5.29
+Manual sample accessioning,5,0.0,5.0,2.59,4.62

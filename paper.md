@@ -36,7 +36,7 @@ The framework evaluates workflows across six assessment domains:
 - Exception Handling
 - Workflow Stability
 
-Domain scores are combined into an overall readiness score that provides a high-level indicator of workflow maturity.
+Domain scores are combined into an overall readiness score, a weighted mean that uses equal weights by default and adjustable weights where a laboratory's priorities differ. A weakest-link rule caps the classification at Early Stage when any domain scores below a critical threshold, so a strong average cannot hide a gap that would block automation. Each domain below a target score receives a recommended action, and the actions are ranked by their weighted gap to the target.
 
 # Scientific Contribution
 
@@ -46,7 +46,7 @@ The framework provides a repeatable assessment process that can support automati
 
 # Example Application
 
-The framework can be applied to laboratory workflows involving sample handling, analytical testing, data collection, material transport, and process monitoring. Example outputs include domain-level readiness scores, workflow bottleneck identification, and readiness classifications.
+The framework can be applied to laboratory workflows involving sample handling, analytical testing, data collection, material transport, and process monitoring. Example outputs include domain-level readiness scores, readiness classifications, the domains that limit automation, ranked improvement priorities, and a sensitivity analysis showing how stable a ranking of several workflows is when the weights change. Four reproducible case studies with illustrative workflows are provided in the repository (`examples/CASE_STUDIES.md`).
 
 # Limitations
 
@@ -60,14 +60,14 @@ Repository:
 https://github.com/Oluwaseun-O-Ajayi/automation-readiness-framework
 
 Archived Version:
-v1.0.1
+v2.0.0
 
 DOI:
 10.5281/zenodo.21689250
 
 # AI usage disclosure
 
-The author designed and wrote the original version of this software in July 2026, and wrote this paper. In October 2026, Claude Opus 5.5 (Anthropic) was used for code review and minor code and documentation edits. The author directed and verified all changes and takes full responsibility for the work.
+The author designed and developed version 1 of the software in July 2026 and authored the accompanying manuscript. In October 2026, the author developed version 2 of the software. Claude Opus 5.5 (Anthropic) was used to assist with code review, refactoring, and testing. The author directed and verified all modifications and accepts full responsibility for the software and the manuscript.
 
 # References
 
@@ -76,7 +76,7 @@ The author designed and wrote the original version of this software in July 2026
 If you use this framework, please cite:
 
 Ajayi, O. O. (2026).
-Automation Readiness Assessment Framework (Version 1.0.1).
+Automation Readiness Assessment Framework (Version 2.0.0).
 Zenodo.
 
 DOI: 10.5281/zenodo.21689250

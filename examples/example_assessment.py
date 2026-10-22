@@ -1,7 +1,7 @@
-from src.workflow import Workflow
-from src.assessment import Assessment
-from src.reporting import ReportGenerator
+"""Assess one workflow (the version 1 example; equal weights give the same score)."""
 
+from _common import ROOT  # noqa: F401  (adds the repository to the import path)
+from automation_readiness import Assessment, Workflow
 
 workflow = Workflow(
     name="Cell Culture Screening Workflow",
@@ -13,8 +13,4 @@ workflow = Workflow(
     workflow_stability=8.0,
 )
 
-assessment = Assessment(workflow)
-
-results = assessment.run()
-
-ReportGenerator.print_report(results)
+print(Assessment().assess(workflow).summary())

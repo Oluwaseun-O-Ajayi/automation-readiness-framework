@@ -1,0 +1,6 @@
+workflow,overall_score_equal,rank_equal,classification_equal,overall_score_regulated,rank_regulated,classification_regulated
+HPLC purity testing,7.83,1,Advanced,8.0,1,Advanced
+Plate-based ELISA,6.67,2,Moderate,6.88,2,Moderate
+Buffer preparation,5.17,3,Moderate,5.0,4,Moderate
+Cell culture passaging,4.67,4,Early Stage,5.0,3,Moderate
+Manual sample accessioning,3.33,5,Early Stage,3.25,5,Early Stage

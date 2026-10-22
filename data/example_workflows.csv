@@ -1,0 +1,6 @@
+name,data_readiness,traceability,integration,human_dependency,exception_handling,workflow_stability,notes
+Plate-based ELISA,8,7,6,6,5,8,Illustrative scores for demonstration; not measurements of a real workflow
+HPLC purity testing,9,8,8,7,6,9,Illustrative scores for demonstration; not measurements of a real workflow
+Manual sample accessioning,4,2,3,2,3,6,Illustrative scores for demonstration; not measurements of a real workflow
+Cell culture passaging,6,6,4,3,4,5,Illustrative scores for demonstration; not measurements of a real workflow
+Buffer preparation,5,4,3,6,5,8,Illustrative scores for demonstration; not measurements of a real workflow

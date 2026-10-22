@@ -1,0 +1,6 @@
+rank,workflow,data_readiness,traceability,integration,human_dependency,exception_handling,workflow_stability,overall_score,classification,limiting_domains,top_priority
+1,HPLC purity testing,9.0,8.0,8.0,7.0,6.0,9.0,7.83,Advanced,,Exception Handling
+2,Plate-based ELISA,8.0,7.0,6.0,6.0,5.0,8.0,6.67,Moderate,,Exception Handling
+3,Buffer preparation,5.0,4.0,3.0,6.0,5.0,8.0,5.17,Moderate,,Integration
+4,Cell culture passaging,6.0,6.0,4.0,3.0,4.0,5.0,4.67,Early Stage,,Human Dependency
+5,Manual sample accessioning,4.0,2.0,3.0,2.0,3.0,6.0,3.33,Early Stage,"Traceability, Human Dependency",Traceability

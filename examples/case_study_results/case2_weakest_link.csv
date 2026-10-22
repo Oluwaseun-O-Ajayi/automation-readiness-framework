@@ -1,0 +1,5 @@
+setting,workflow,overall_score,classification,limiting_domains
+weakest-link rule on (default),Balanced workflow,7.5,Advanced,
+weakest-link rule on (default),Uneven workflow,7.5,Early Stage,Traceability
+weakest-link rule off,Balanced workflow,7.5,Advanced,
+weakest-link rule off,Uneven workflow,7.5,Advanced,

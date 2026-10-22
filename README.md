@@ -2,13 +2,18 @@
 
 **A structured framework for evaluating traceability, integration, workflow maturity, and automation readiness in laboratory processes.**
 
+[![tests](https://github.com/Oluwaseun-O-Ajayi/automation-readiness-framework/actions/workflows/tests.yml/badge.svg)](https://github.com/Oluwaseun-O-Ajayi/automation-readiness-framework/actions/workflows/tests.yml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21689250.svg)](https://doi.org/10.5281/zenodo.21689250)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 ## DOI and Archival Record
 
 This software is archived on Zenodo for long-term preservation, reproducibility, and scholarly citation.
 
-**Version:** 1.0.1
+**Version:** 2.0.0
 
 **DOI:** https://doi.org/10.5281/zenodo.21689250
+
 ---
 
 ## Overview
@@ -120,35 +125,99 @@ Categories:
 9–10  Automation Ready
 ```
 
-**Scoring convention.** Every domain is scored so that a higher value means more ready. For Human Dependency, 10 therefore means that the workflow depends least on manual steps. The overall score is the unweighted mean of the six domain scores, and a value on a boundary falls in the higher category (for example, 7.0 is Advanced).
+**Scoring convention.** Every domain is scored so that a higher value means more ready. For Human Dependency, 10 therefore means that the workflow depends least on manual steps. A value on a boundary falls in the higher category (for example, 7.0 is Advanced).
 
-**Status of the method.** The six domains, the 0 to 10 scale and the category thresholds were defined by the author from common automation-planning considerations. They have not been validated against the outcomes of real automation projects, and the scores are entered by the assessor rather than measured. Use the result to structure discussion and to find gaps, not to predict whether an automation project will succeed.
+**Overall score.** The overall score is the weighted mean of the six domain scores. By default all weights are equal, which gives the same result as version 1. Weights can be changed to reflect local priorities, for example giving traceability more weight in a regulated laboratory.
+
+**Weakest-link rule.** If any domain scores below 3 (the critical threshold), the classification is capped at Early Stage however high the overall score, and the domain is reported as limiting. A strong average should not hide a gap that would block automation. The threshold and the cap are settings; setting the threshold to 0 switches the rule off.
+
+**Priorities.** Every domain below the target score (7 by default) receives a recommended action. Actions are ranked by the weighted gap between the score and the target.
+
+**Status of the method.** The six domains, the 0 to 10 scale and the category thresholds were defined by the author from common automation-planning considerations. They have not been validated against the outcomes of real automation projects, and the scores are entered by the assessor rather than measured. Use the result to structure discussion and to find gaps, not to predict whether an automation project will succeed. The weakest-link rule, its default threshold and the recommended actions, added in version 2, are heuristics of the same kind.
+
 
 ---
 
-## Example Output
+## Installation
 
-```text
-Workflow:
-Cell Culture Screening
-
-Data Readiness        8.5
-Traceability          9.0
-Integration           7.0
-Human Dependency      5.0
-Exception Handling    4.5
-Workflow Stability    8.0
-
-Overall Score         7.0
+```bash
+git clone https://github.com/Oluwaseun-O-Ajayi/automation-readiness-framework.git
+cd automation-readiness-framework
+pip install .            # or: pip install ".[test]" to include the test dependencies
 ```
 
+Requires Python 3.9 or later, NumPy and pandas.
+
+## Quick Start
+
+```python
+from automation_readiness import Workflow, Assessment, read_workflows, weight_sensitivity
+
+workflow = Workflow(
+    name="Cell Culture Screening Workflow",
+    data_readiness=8.5,
+    traceability=9.0,
+    integration=7.0,
+    human_dependency=5.0,
+    exception_handling=4.5,
+    workflow_stability=8.0,
+)
+
+result = Assessment().assess(workflow)
+print(result.summary())               # scores, classification, ranked priorities
+
+# Several workflows from a CSV, ranked
+workflows = read_workflows("data/example_workflows.csv")
+print(Assessment().assess_many(workflows))
+
+# Custom weights, and how stable the ranking is when the weights change
+print(Assessment(weights={"traceability": 2, "data_readiness": 2}).assess_many(workflows))
+print(weight_sensitivity(workflows, seed=1))
+```
+
+Expected output of `python examples/example_assessment.py`:
+
+```text
+Workflow: Cell Culture Screening Workflow
+
+Data Readiness           8.5   (weight 0.17)
+Traceability             9.0   (weight 0.17)
+Integration              7.0   (weight 0.17)
+Human Dependency         5.0   (weight 0.17)
+Exception Handling       4.5   (weight 0.17)
+Workflow Stability       8.0   (weight 0.17)
+
+Overall readiness score: 7.00
+Classification: Advanced
+
+Priorities (largest weighted gap first):
+  1. Exception Handling (4.5 -> 7.0): Define how errors are detected, who is alerted and how the workflow recovers, and write these into the procedure.
+  2. Human Dependency (5.0 -> 7.0): Map manual decisions, transfers, data entry and reconciliation steps, and decide which can be standardized or removed before automating.
+```
+
+To assess your own workflows, copy `data/example_workflows.csv`, replace the rows and pass the file to `read_workflows()`.
+
 ---
 
-## Scientific Contribution
+## Case Studies
 
-The framework introduces a structured methodology for assessing automation readiness across multiple technical and operational dimensions.
+Four reproducible case studies are described in [`examples/CASE_STUDIES.md`](examples/CASE_STUDIES.md). They use illustrative scores, not assessments of real laboratories:
 
-The emphasis is not on automation execution itself, but on determining whether a workflow is sufficiently mature for automation.
+1. **Portfolio.** Ranking five candidate workflows, with the blocking domains and next step for each.
+2. **Weakest link.** Two workflows with the same average of 7.5 are classified differently because one scores 2 on traceability.
+3. **Weights.** Doubling the weight on traceability and data readiness swaps two workflows; across 5,000 random weightings the top workflow stays first every time.
+4. **Improvement plan.** Raising the two highest priorities of an Early Stage workflow moves it to Moderate.
+
+---
+
+## Testing
+
+```bash
+pip install ".[test]"
+python -m pytest
+```
+
+The tests check that equal weights reproduce version 1, category boundaries, weighted means, the weakest-link rule, the ordering of priorities, ranking, CSV input and output, reproducibility of the sensitivity analysis, input validation, and that every example runs. They run on Linux, macOS and Windows for every push.
 
 ---
 
@@ -156,45 +225,30 @@ The emphasis is not on automation execution itself, but on determining whether a
 
 ```text
 automation-readiness-framework/
-├── README.md
-├── paper.md
-├── paper.bib
-├── pyproject.toml
-├── CITATION.cff
-├── CHANGELOG.md
-├── src/
-│   ├── workflow.py
-│   ├── scoring.py
-│   ├── assessment.py
-│   └── reporting.py
+├── automation_readiness/
+│   ├── model.py         domains, workflows, scoring, classification, priorities
+│   └── analysis.py      CSV input and output, weight sensitivity
+├── data/
+│   └── example_workflows.csv
 ├── examples/
-├── docs/
-└── figures/
+│   ├── example_assessment.py
+│   ├── case_study_1_portfolio.py ... case_study_4_improvement_plan.py
+│   ├── CASE_STUDIES.md
+│   └── case_study_results/
+├── tests/
+├── paper.md, paper.bib
+├── CITATION.cff, CHANGELOG.md
+└── pyproject.toml
 ```
 
 ---
 
-## Example Assessment
+## Related Software
 
-```bash
-python examples/example_assessment.py
-```
+The [Laboratory Automation Digital Twin Framework](https://github.com/Oluwaseun-O-Ajayi/lab-automation-digital-twin) simulates how a workflow performs once automated (throughput, queues, bottlenecks and traceability). Use this framework first to decide whether a workflow is ready, and the digital twin to plan the automated version.
 
-Expected output:
+---
 
-```
-Workflow: Cell Culture Screening Workflow
-
-Data Readiness            8.5
-Traceability              9.0
-Integration               7.0
-Human Dependency          5.0
-Exception Handling        4.5
-Workflow Stability        8.0
-
-Overall Readiness Score: 7.0
-Classification: Advanced
-```
 ## Intended Use
 
 This framework is intended for:
@@ -212,14 +266,7 @@ This framework is intended for:
 If you use this framework in research, teaching, workflow analysis, automation planning, or digital transformation studies, please cite:
 
 ```text
-Ajayi, O. O. (2026).
-
-Automation Readiness Assessment Framework
-(Version 1.0.1) [Computer software].
-
-Zenodo.
-
-DOI: 10.5281/zenodo.21689250
+Ajayi, O. O. (2026). Automation Readiness Assessment Framework (Version 2.0.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.21689250
 ```
 
 ### BibTeX
@@ -229,7 +276,7 @@ DOI: 10.5281/zenodo.21689250
   author = {Ajayi, Oluwaseun O.},
   title = {Automation Readiness Assessment Framework},
   year = {2026},
-  version = {1.0.1},
+  version = {2.0.0},
   publisher = {Zenodo},
   doi = {10.5281/zenodo.21689250},
   url = {https://doi.org/10.5281/zenodo.21689250}
@@ -240,8 +287,6 @@ DOI: 10.5281/zenodo.21689250
 
 ## Limitations
 
-This framework is a conceptual and computational assessment approach.
+This framework is a conceptual and computational assessment approach. Scores are entered by the assessor, and the method has not been validated against the outcomes of real automation projects.
 
 It does not directly control automation systems, robots, instruments, LIMS, MES platforms, or manufacturing environments.
----
-
